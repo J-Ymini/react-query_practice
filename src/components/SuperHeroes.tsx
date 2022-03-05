@@ -1,5 +1,5 @@
 const SuperHeroes = () => {
-  return <div>Superheroes</div>;
+  return <h2>Superheroes</h2>;
 };
 
 export default SuperHeroes;

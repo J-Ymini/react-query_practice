@@ -1,5 +1,5 @@
-import axios from "axios";
 import React from "react";
+import { getHeroes } from "../axios";
 import { useQuery } from "react-query";
 
 interface IHero {
@@ -8,15 +8,10 @@ interface IHero {
   alterEgo: string;
 }
 
-const fetchHeroes = async () => {
-  const response = await axios.get("http://localhost:4000/superheroes");
-  return response.data;
-};
-
 const RQSuperHeroes = () => {
   const { data, isLoading, isError, error } = useQuery<IHero[], Error>(
     "rq-super-heroes",
-    fetchHeroes
+    getHeroes
   );
 
   if (isLoading) {
@@ -24,10 +19,8 @@ const RQSuperHeroes = () => {
   }
 
   if (isError) {
-    return <h2>{error}</h2>;
+    return <h2>{error.message}</h2>;
   }
-
-  console.log(data);
 
   return (
     <>
