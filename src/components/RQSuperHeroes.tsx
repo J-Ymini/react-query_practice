@@ -9,19 +9,19 @@ interface IHero {
 }
 
 const RQSuperHeroes = () => {
-  const { data, isLoading, isError, error, isFetching } = useQuery<
+  const { data, isLoading, isError, error, isFetching, isStale } = useQuery<
     IHero[],
     Error
   >("rq-super-heroes", getHeroes, {
-    cacheTime: 3000, // maintaining cache time, default: 5m
+    cacheTime: 5000, // maintaining cache time, default: 5m
+    staleTime: 3000, // 마운트된 컴포넌의 데이터가 fresh인지, stale인지 판단
   });
 
+  console.log({ isLoading, isFetching, isStale });
+
   if (isLoading) {
-    console.log({ isLoading });
     return <h2>loading</h2>;
   }
-
-  console.log({ isFetching });
 
   if (isError) {
     return <h2>{error.message}</h2>;
