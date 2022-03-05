@@ -9,6 +9,16 @@ interface IHero {
 }
 
 const RQSuperHeroes = () => {
+  const onSuccess = (data: any) => {
+    console.log(data);
+    alert("데이터를 성공적으로 불러왔습니다.");
+  };
+
+  const onError = (error: any) => {
+    console.log(error);
+    alert("에러가 발생하였습니다.");
+  };
+
   const { data, isLoading, isError, error, isFetching, isStale, refetch } =
     useQuery<IHero[], Error>("rq-super-heroes", getHeroes, {
       // cacheTime: 1000, // maintaining cache time, default: 5m
@@ -17,7 +27,9 @@ const RQSuperHeroes = () => {
       // refetchOnWindowFocus: "always", // window에 focusing 시 refetch 여부 설정
       // refetchInterval: 5000, // polling
       // refetchIntervalInBackground: true, // polling in not focusing
-      enabled: false,
+      enabled: false, // 쿼리를 날렸을때 데이터를 받아오지 못하도록
+      onSuccess,
+      onError,
     });
 
   if (isLoading || isFetching) {
@@ -36,9 +48,20 @@ const RQSuperHeroes = () => {
     <>
       <h2>RQSuperHeroes pages</h2>
       <button onClick={getHeroesList}>Fetch heroes</button>
-      {data?.map((hero) => (
-        <div key={hero.id}>{hero.name}</div>
-      ))}
+      {data?.map(
+        (hero: {
+          id: React.Key | null | undefined;
+          name:
+            | boolean
+            | React.ReactChild
+            | React.ReactFragment
+            | React.ReactPortal
+            | null
+            | undefined;
+        }) => (
+          <div key={hero.id}>{hero.name}</div>
+        )
+      )}
     </>
   );
 };
