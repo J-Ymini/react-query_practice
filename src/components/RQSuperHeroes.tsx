@@ -17,7 +17,8 @@ const RQSuperHeroes = () => {
     staleTime: 5000, // 마운트된 컴포넌의 데이터가 fresh인지, stale인지 판단
     refetchOnMount: "always", // 데이터가 stale 상태일때 refetch 여부 설정
     refetchOnWindowFocus: "always", // window에 focusing 시 refetch 여부 설정
-    refetchInterval: 5000,
+    refetchInterval: 5000, // polling
+    refetchIntervalInBackground: true, // polling in not focusing
   });
 
   console.log({ isLoading, isFetching, isStale });
