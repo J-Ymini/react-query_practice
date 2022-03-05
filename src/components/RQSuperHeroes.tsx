@@ -9,14 +9,19 @@ interface IHero {
 }
 
 const RQSuperHeroes = () => {
-  const { data, isLoading, isError, error } = useQuery<IHero[], Error>(
-    "rq-super-heroes",
-    getHeroes
-  );
+  const { data, isLoading, isError, error, isFetching } = useQuery<
+    IHero[],
+    Error
+  >("rq-super-heroes", getHeroes, {
+    cacheTime: 3000, // maintaining cache time, default: 5m
+  });
 
   if (isLoading) {
+    console.log({ isLoading });
     return <h2>loading</h2>;
   }
+
+  console.log({ isFetching });
 
   if (isError) {
     return <h2>{error.message}</h2>;
