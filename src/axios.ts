@@ -9,6 +9,11 @@ export const getHeroes = async () => {
   return response.data;
 };
 
+export const getFriends = async () => {
+  const response = await instance.get("/friends");
+  return response.data;
+};
+
 export const getHeroesDetail = async (heroId: string) => {
   const response = await instance.get(`/superheroes/${heroId}`);
   return response.data;
