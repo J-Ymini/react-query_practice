@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import RQSuperHeroes from "./components/RQSuperHeroes";
-import SuperHeroes from "./components/SuperHeroes";
+import Home from "./components/Home.page";
+import RQSuperHeroes from "./components/RQSuperHeroes.page";
+import SuperHeroes from "./components/SuperHeroes.page";
 
 const Router = () => {
   return (
