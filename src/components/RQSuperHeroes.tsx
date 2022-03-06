@@ -20,7 +20,11 @@ const RQSuperHeroes = () => {
   };
 
   const { data, isLoading, isError, error, isFetching, isStale, refetch } =
-    useQuery<IHero[], Error>("rq-super-heroes", getHeroes, {
+    useQuery<
+      IHero[],
+      Error
+      // string[] // filtered data's type
+    >("rq-super-heroes", getHeroes, {
       // cacheTime: 1000, // maintaining cache time, default: 5m
       // staleTime: 5000, // 마운트된 컴포넌의 데이터가 fresh인지, stale인지 판단
       // refetchOnMount: "always", // 데이터가 stale 상태일때 refetch 여부 설정
@@ -30,6 +34,9 @@ const RQSuperHeroes = () => {
       enabled: false, // 쿼리를 날렸을때 데이터를 받아오지 못하도록
       onSuccess,
       onError,
+      // select: (data) => { // filtering data
+      //   return data.map((hero) => hero.name);
+      // },
     });
 
   if (isLoading || isFetching) {
@@ -48,20 +55,12 @@ const RQSuperHeroes = () => {
     <>
       <h2>RQSuperHeroes pages</h2>
       <button onClick={getHeroesList}>Fetch heroes</button>
-      {data?.map(
-        (hero: {
-          id: React.Key | null | undefined;
-          name:
-            | boolean
-            | React.ReactChild
-            | React.ReactFragment
-            | React.ReactPortal
-            | null
-            | undefined;
-        }) => (
-          <div key={hero.id}>{hero.name}</div>
-        )
-      )}
+      {data?.map((hero) => (
+        <div key={hero.id}>{hero.name}</div>
+      ))}
+      {/* {data?.map((heroName) => (
+        <div>{heroName}</div>
+      ))} */}
     </>
   );
 };
