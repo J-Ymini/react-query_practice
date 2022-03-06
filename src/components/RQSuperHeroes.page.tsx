@@ -1,7 +1,6 @@
 import React from "react";
-import { getHeroes } from "../axios";
-import { useQuery } from "react-query";
 import { useSuperHeroesData } from "../hooks";
+import { Link } from "react-router-dom";
 
 interface IHero {
   id: number;
@@ -31,17 +30,17 @@ const RQSuperHeroes = () => {
     return <h2>{error.message}</h2>;
   }
 
-  const getHeroesList = () => {
-    refetch();
-  };
-
   return (
     <>
       <h2>RQSuperHeroes pages</h2>
-      <button onClick={getHeroesList}>Fetch heroes</button>
-      {data?.map((hero) => (
-        <div key={hero.id}>{hero.name}</div>
-      ))}
+      {/* <button onClick={getHeroesList}>Fetch heroes</button> */}
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {data?.map((hero) => (
+          <Link key={hero.id} to={`/heroes/${hero.id}`}>
+            {hero.name}
+          </Link>
+        ))}
+      </div>
       {/* {data?.map((heroName) => (
         <div>{heroName}</div>
       ))} */}

@@ -7,7 +7,7 @@ interface IHero {
   alterEgo: string;
 }
 
-export const useSuperHeroesData = (onSuccess: any, onError: any) => {
+const useSuperHeroesData = (onSuccess: any, onError: any) => {
   return useQuery<
     IHero[],
     Error
@@ -19,11 +19,13 @@ export const useSuperHeroesData = (onSuccess: any, onError: any) => {
     // refetchOnWindowFocus: "always", // window에 focusing 시 refetch 여부 설정
     // refetchInterval: 5000, // polling
     // refetchIntervalInBackground: true, // polling in not focusing
-    enabled: false, // 쿼리를 날렸을때 데이터를 받아오지 못하도록
-    onSuccess,
-    onError,
+    // enabled: false, // 쿼리를 날렸을때 데이터를 받아오지 못하도록
+    // onSuccess,
+    // onError,
     // select: (data) => { // filtering data
     //   return data.map((hero) => hero.name);
     // },
   });
 };
+
+export default useSuperHeroesData;

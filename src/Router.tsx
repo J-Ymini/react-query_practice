@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home.page";
+import RQSuperHeroDetail from "./components/RQSuperHeroDetail.page";
 import RQSuperHeroes from "./components/RQSuperHeroes.page";
 import SuperHeroes from "./components/SuperHeroes.page";
 
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/super-heroes" element={<SuperHeroes />} />
         <Route path="/rq-super-heroes" element={<RQSuperHeroes />} />
+        <Route path="/heroes/:id" element={<RQSuperHeroDetail />} />
       </Routes>
     </BrowserRouter>
   );
