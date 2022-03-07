@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import DynamicParallel from "./components/DynamicParallel.page";
 import Home from "./components/Home.page";
+import PaginatedQueries from "./components/PaginatedQueries.page";
 import ParallelQueries from "./components/ParallelQueries.page";
 import RQSuperHeroDetail from "./components/RQSuperHeroDetail.page";
 import RQSuperHeroes from "./components/RQSuperHeroes.page";
@@ -29,6 +30,7 @@ const Router = () => {
           path="/dynamic-parallel"
           element={<DynamicParallel heroIds={["1", "3"]} />}
         />
+        <Route path="/numbers" element={<PaginatedQueries />} />
       </Routes>
     </BrowserRouter>
   );

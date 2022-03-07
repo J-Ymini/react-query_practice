@@ -7,8 +7,6 @@ const RQSuperHeroDetail = () => {
 
   const { data, isLoading, isError, error } = useSuperHeroDetail(id as string);
 
-  console.log(data);
-
   return (
     <>
       <h2>RQSuperHeroDetail</h2>

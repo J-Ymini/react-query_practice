@@ -25,6 +25,7 @@ const useSuperHeroesData = (onSuccess: any, onError: any) => {
     // select: (data) => { // filtering data
     //   return data.map((hero) => hero.name);
     // },
+    retry: 0,
   });
 };
 

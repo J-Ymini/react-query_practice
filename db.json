@@ -17,5 +17,27 @@
       "id": 3,
       "name": "Tom"
     }
+  ],
+  "users": [
+    {
+      "id": "test@example.com",
+      "channelId": "test"
+    }
+  ],
+  "channels": [
+    {
+      "id": "test",
+      "courses": ["react", "vue", "angular"]
+    }
+  ],
+  "number": [
+    { "id": 1, "text": "one" },
+    { "id": 2, "text": "two" },
+    { "id": 3, "text": "three" },
+    { "id": 4, "text": "four" },
+    { "id": 5, "text": "fifth" },
+    { "id": 6, "text": "sixth" },
+    { "id": 7, "text": "seventh" },
+    { "id": 8, "text": "eighth" }
   ]
 }

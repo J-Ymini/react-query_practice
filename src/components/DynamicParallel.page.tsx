@@ -11,7 +11,7 @@ const DynamicParallel = ({ heroIds }: IParallelQueries) => {
     heroIds.map((id) => {
       return {
         queryKey: ["super-hero", id],
-        queryFn: () => getHeroesDetail(id),
+        queryFn: getHeroesDetail,
       };
     })
   );

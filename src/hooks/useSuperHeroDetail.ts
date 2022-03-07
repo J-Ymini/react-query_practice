@@ -8,9 +8,7 @@ interface IHero {
 }
 
 const useSuperHeroDetail = (heroId: string) => {
-  return useQuery<IHero, Error>(["hero-detail", heroId], () =>
-    getHeroesDetail(heroId)
-  );
+  return useQuery<IHero, Error>(["hero-detail", heroId], getHeroesDetail);
 };
 
 export default useSuperHeroDetail;
