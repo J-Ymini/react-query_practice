@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import { getHeroes, addSuperHero } from "./../axios";
 
 interface IHero {
@@ -32,5 +32,11 @@ const useSuperHeroesData = (onSuccess: any, onError: any) => {
 export default useSuperHeroesData;
 
 export const useAddSuperheroData = () => {
-  return useMutation(addSuperHero);
+  const queryClient = useQueryClient();
+
+  return useMutation(addSuperHero, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("rq-super-heroes");
+    },
+  });
 };
