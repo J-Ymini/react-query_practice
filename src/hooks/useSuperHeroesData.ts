@@ -1,5 +1,5 @@
-import { useQuery } from "react-query";
-import { getHeroes } from "./../axios";
+import { useQuery, useMutation } from "react-query";
+import { getHeroes, addSuperHero } from "./../axios";
 
 interface IHero {
   id: number;
@@ -30,3 +30,7 @@ const useSuperHeroesData = (onSuccess: any, onError: any) => {
 };
 
 export default useSuperHeroesData;
+
+export const useAddSuperheroData = () => {
+  return useMutation(addSuperHero);
+};

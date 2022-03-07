@@ -29,3 +29,11 @@ export const getNumbers = async (pageNumber: number) => {
   const response = await instance.get(`/number?_limit=2&_page=${pageNumber}`);
   return response.data;
 };
+
+export const addSuperHero = async (hero: {
+  name: string;
+  alterEgo: string;
+}) => {
+  const response = await instance.post("/superheroes", hero);
+  return response;
+};

@@ -1,8 +1,35 @@
 {
   "superheroes": [
-    { "id": 1, "name": "Batman", "alterEgo": "Bruce Wayne" },
-    { "id": 2, "name": "Superman", "alterEgo": "Clark Kent" },
-    { "id": 3, "name": "Wonder Woman 11", "alterEgo": "Princess Diana" }
+    {
+      "id": 1,
+      "name": "Batman",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "Wonder Woman 11",
+      "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "The Flash",
+      "alterEgo": "Barry Allen",
+      "id": 4
+    },
+    {
+      "name": "Aquaman",
+      "alterEgo": "Json",
+      "id": 5
+    },
+    {
+      "name": "Robin",
+      "alterEgo": "kid",
+      "id": 6
+    }
   ],
   "friends": [
     {
@@ -27,17 +54,45 @@
   "channels": [
     {
       "id": "test",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "number": [
-    { "id": 1, "text": "one" },
-    { "id": 2, "text": "two" },
-    { "id": 3, "text": "three" },
-    { "id": 4, "text": "four" },
-    { "id": 5, "text": "fifth" },
-    { "id": 6, "text": "sixth" },
-    { "id": 7, "text": "seventh" },
-    { "id": 8, "text": "eighth" }
+    {
+      "id": 1,
+      "text": "one"
+    },
+    {
+      "id": 2,
+      "text": "two"
+    },
+    {
+      "id": 3,
+      "text": "three"
+    },
+    {
+      "id": 4,
+      "text": "four"
+    },
+    {
+      "id": 5,
+      "text": "fifth"
+    },
+    {
+      "id": 6,
+      "text": "sixth"
+    },
+    {
+      "id": 7,
+      "text": "seventh"
+    },
+    {
+      "id": 8,
+      "text": "eighth"
+    }
   ]
 }
