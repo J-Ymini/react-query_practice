@@ -10,7 +10,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Router />
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      {process.env.NODE_ENV === "development" && (
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      )}
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
